@@ -3,7 +3,7 @@ Contributors: n7studios,wpcube
 Donate link: http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking
 Tags: woocommerce,shareasale,merchant,tracking
 Requires at least: 3.6
-Tested up to: 3.7
+Tested up to: 3.8.1
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -52,6 +52,9 @@ Find out more about us:
 1. Settings screen
 
 == Changelog ==
+
+= 1.0.1 =
+* Added translation support and .pot file
 
 = 1.0 =
 * First release.

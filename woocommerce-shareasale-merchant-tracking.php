@@ -2,7 +2,7 @@
 /**
 * Plugin Name: WooCommerce ShareASale Merchant Tracking
 * Plugin URI: http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking
-* Version: 1.0
+* Version: 1.0.1
 * Author: WP Cube
 * Author URI: http://www.wpcube.co.uk
 * Description: Adds ShareASale Merchant Tracking code to WooCommerce.
@@ -31,7 +31,7 @@
 * @package WP Cube
 * @subpackage WooCommerce ShareASale Merchant Tracking
 * @author Tim Carr
-* @version 1.0
+* @version 1.0.1
 * @copyright WP Cube
 */
 class WCShareASaleMerchantTracking {
@@ -43,7 +43,7 @@ class WCShareASaleMerchantTracking {
         $this->plugin = new stdClass;
         $this->plugin->name = 'woocommerce-shareasale-merchant-tracking'; // Plugin Folder
         $this->plugin->displayName = 'WC ShareASale - Merchant'; // Plugin Name
-        $this->plugin->version = '1.0';
+        $this->plugin->version = '1.0.1';
         $this->plugin->folder = WP_PLUGIN_DIR.'/'.$this->plugin->name; // Full Path to Plugin Folder
         $this->plugin->url = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
         
@@ -57,6 +57,7 @@ class WCShareASaleMerchantTracking {
         add_action('admin_enqueue_scripts', array(&$this, 'adminScriptsAndCSS'));
         add_action('admin_menu', array(&$this, 'adminPanelsAndMetaBoxes'));
         add_action('admin_notices', array(&$this, 'adminNotices'));
+        add_action('plugins_loaded', array(&$this, 'loadLanguageFiles'));
         add_action('woocommerce_thankyou', array(&$this, 'frontendTrackingCode'));
     }
     
@@ -108,6 +109,13 @@ class WCShareASaleMerchantTracking {
 		// Load Settings Form
         include_once(WP_PLUGIN_DIR.'/'.$this->plugin->name.'/views/settings.php');  
     }
+    
+    /**
+	* Loads plugin textdomain
+	*/
+	function loadLanguageFiles() {
+		load_plugin_textdomain($this->plugin->name, false, $this->plugin->name.'/languages/');
+	}
     
     /**
     * Adds ShareASale tracking code to the WooCommerce thank you page

@@ -1,0 +1,161 @@
+# Copyright (C) 2014 WooCommerce ShareASale Merchant Tracking
+# This file is distributed under the same license as the WooCommerce ShareASale Merchant Tracking package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce ShareASale Merchant Tracking 1.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/woocommerce-shareasale-merchant-tracking\n"
+"POT-Creation-Date: 2014-03-01 18:33:49+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: _modules/dashboard/views/dashboard-nodata.php:14
+msgid "Thanks for using our plugins - why not check out some of our other amazing Premium WordPress Plugins?"
+msgstr ""
+
+#: _modules/dashboard/views/dashboard-nodata.php:15
+#: _modules/dashboard/views/dashboard.php:40
+msgid "Visit WP Cube"
+msgstr ""
+
+#: _modules/dashboard/views/dashboard.php:18
+msgid "Thanks for using our plugins - why not check out some of our other amazing Premium WordPress Plugins below?"
+msgstr ""
+
+#: _modules/dashboard/views/dashboard.php:33
+msgid "Visit the WP Cube Web Site"
+msgstr ""
+
+#: _modules/dashboard/views/dashboard.php:39
+msgid "Why not visit"
+msgstr ""
+
+#: _modules/dashboard/views/dashboard.php:39
+msgid "and check out some of our other amazing Premium WordPress Plugins?"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:5
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:16
+#: _modules/dashboard/views/sidebar-pro.php:23
+#: _modules/dashboard/views/sidebar-pro.php:28
+msgid "Support"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:16
+msgid "Access to one on one email support"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:17
+#: _modules/dashboard/views/sidebar-pro.php:27
+msgid "Documentation"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:17
+msgid "Detailed documentation on how to install and configure the plugin"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:18
+msgid "Updates"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:18
+msgid "Receive one click update notifications, right within your WordPress Adminstration panel"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:19
+msgid "Seamless Upgrade"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:19
+msgid "Retain all current settings when upgrading to Pro"
+msgstr ""
+
+#: _modules/dashboard/views/footer-upgrade.php:25
+msgid "Upgrade Now"
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-donate.php:10
+#: _modules/dashboard/views/sidebar-pro.php:10
+msgid "About"
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-donate.php:13
+msgid "Found this plugin useful? Donations to help with support and development are appreciated."
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-donate.php:30
+msgid "Donate Now"
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-donate.php:40
+#: _modules/dashboard/views/sidebar-upgrade.php:10
+msgid "Keep Updated"
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-donate.php:43
+#: _modules/dashboard/views/sidebar-upgrade.php:13
+msgid "Subscribe to the newsletter and receive updates on our WordPress Plugins"
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-donate.php:49
+#: _modules/dashboard/views/sidebar-upgrade.php:19
+msgid "Email"
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-donate.php:55
+#: _modules/dashboard/views/sidebar-upgrade.php:25
+msgid "Subscribe"
+msgstr ""
+
+#: _modules/dashboard/views/sidebar-pro.php:14
+msgid "Version"
+msgstr ""
+
+#: views/settings.php:3
+msgid "Settings"
+msgstr ""
+
+#: views/settings.php:27
+msgid "Merchant Settings"
+msgstr ""
+
+#: views/settings.php:31
+msgid "Merchant ID"
+msgstr ""
+
+#: views/settings.php:34
+msgid "Your ShareASale Merchant ID"
+msgstr ""
+
+#: views/settings.php:39
+msgid "Save"
+msgstr ""
+
+#: woocommerce-shareasale-merchant-tracking.php:102
+msgid "Settings Updated."
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce ShareASale Merchant Tracking"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Adds ShareASale Merchant Tracking code to WooCommerce."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Cube"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.wpcube.co.uk"
+msgstr ""
