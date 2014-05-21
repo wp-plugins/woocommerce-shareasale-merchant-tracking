@@ -2,7 +2,7 @@
 /**
 * Plugin Name: WooCommerce ShareASale Merchant Tracking
 * Plugin URI: http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking
-* Version: 1.0.1
+* Version: 1.0.2
 * Author: WP Cube
 * Author URI: http://www.wpcube.co.uk
 * Description: Adds ShareASale Merchant Tracking code to WooCommerce.
@@ -31,7 +31,7 @@
 * @package WP Cube
 * @subpackage WooCommerce ShareASale Merchant Tracking
 * @author Tim Carr
-* @version 1.0.1
+* @version 1.0.2
 * @copyright WP Cube
 */
 class WCShareASaleMerchantTracking {
@@ -43,7 +43,7 @@ class WCShareASaleMerchantTracking {
         $this->plugin = new stdClass;
         $this->plugin->name = 'woocommerce-shareasale-merchant-tracking'; // Plugin Folder
         $this->plugin->displayName = 'WC ShareASale - Merchant'; // Plugin Name
-        $this->plugin->version = '1.0.1';
+        $this->plugin->version = '1.0.2';
         $this->plugin->folder = WP_PLUGIN_DIR.'/'.$this->plugin->name; // Full Path to Plugin Folder
         $this->plugin->url = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
         
@@ -125,9 +125,17 @@ class WCShareASaleMerchantTracking {
     function frontendTrackingCode($orderID) {
     	$order = new WC_Order($orderID);
     	$settings = get_option($this->plugin->name);
-    	if (!isset($order) OR is_wp_error($order)) return;
-    	if (!isset($settings['merchantID'])) return;
-    	echo ('<img src="https://shareasale.com/sale.cfm?amount='.$order->get_order_total().'&tracking='.$orderID.'&transtype=sale&merchantID='.$settings['merchantID'].'" width="1" height="1">');
+    	if (!isset($order) OR is_wp_error($order)) {
+    		return;
+    	}
+    	if (!isset($settings['merchantID'])) {
+    		return;
+    	}
+    	$tracked = get_post_meta($orderID, $this->plugin->name, true);
+    	if (empty($tracked)) {
+    		echo ('<img src="https://shareasale.com/sale.cfm?amount='.$order->get_order_total().'&tracking='.$orderID.'&transtype=sale&merchantID='.$settings['merchantID'].'" width="1" height="1">');
+			update_post_meta($orderID, $this->plugin->name, 1);
+		}
     }
 }
 $wcSASMT = new WCShareASaleMerchantTracking();
