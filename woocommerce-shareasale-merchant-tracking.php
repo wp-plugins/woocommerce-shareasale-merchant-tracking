@@ -2,14 +2,14 @@
 /**
 * Plugin Name: WooCommerce ShareASale Merchant Tracking
 * Plugin URI: http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking
-* Version: 1.0.2
+* Version: 1.0.3
 * Author: WP Cube
 * Author URI: http://www.wpcube.co.uk
 * Description: Adds ShareASale Merchant Tracking code to WooCommerce.
 * License: GPL2
 */
 
-/*  Copyright 2013 WP Cube (email : support@wpcube.co.uk)
+/*  Copyright 2014 WP Cube (email : support@wpcube.co.uk)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as 
@@ -31,7 +31,7 @@
 * @package WP Cube
 * @subpackage WooCommerce ShareASale Merchant Tracking
 * @author Tim Carr
-* @version 1.0.2
+* @version 1.0.3
 * @copyright WP Cube
 */
 class WCShareASaleMerchantTracking {
@@ -43,7 +43,7 @@ class WCShareASaleMerchantTracking {
         $this->plugin = new stdClass;
         $this->plugin->name = 'woocommerce-shareasale-merchant-tracking'; // Plugin Folder
         $this->plugin->displayName = 'WC ShareASale - Merchant'; // Plugin Name
-        $this->plugin->version = '1.0.2';
+        $this->plugin->version = '1.0.3';
         $this->plugin->folder = WP_PLUGIN_DIR.'/'.$this->plugin->name; // Full Path to Plugin Folder
         $this->plugin->url = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
         
@@ -54,7 +54,6 @@ class WCShareASaleMerchantTracking {
 		$dashboard = new WPCubeDashboardWidget($this->plugin); 
 		
 		// Hooks
-        add_action('admin_enqueue_scripts', array(&$this, 'adminScriptsAndCSS'));
         add_action('admin_menu', array(&$this, 'adminPanelsAndMetaBoxes'));
         add_action('admin_notices', array(&$this, 'adminNotices'));
         add_action('plugins_loaded', array(&$this, 'loadLanguageFiles'));
@@ -62,18 +61,10 @@ class WCShareASaleMerchantTracking {
     }
     
     /**
-    * Register and enqueue any JS and CSS for the WordPress Administration
-    */
-    function adminScriptsAndCSS() {
-    	// CSS
-        wp_enqueue_style($this->plugin->name.'-admin', $this->plugin->url.'css/admin.css', array(), $this->plugin->version); 
-    }
-    
-    /**
     * Register the plugin settings panel
     */
     function adminPanelsAndMetaBoxes() {
-        add_menu_page($this->plugin->displayName, $this->plugin->displayName, 'manage_options', $this->plugin->name, array(&$this, 'adminPanel'), $this->plugin->url.'images/icons/small.png');
+        add_menu_page($this->plugin->displayName, $this->plugin->displayName, 'manage_options', $this->plugin->name, array(&$this, 'adminPanel'), 'dashicons-cart');
     }
     
     /**
@@ -124,6 +115,7 @@ class WCShareASaleMerchantTracking {
     */
     function frontendTrackingCode($orderID) {
     	$order = new WC_Order($orderID);
+    	
     	$settings = get_option($this->plugin->name);
     	if (!isset($order) OR is_wp_error($order)) {
     		return;
@@ -131,9 +123,23 @@ class WCShareASaleMerchantTracking {
     	if (!isset($settings['merchantID'])) {
     		return;
     	}
+    	
+    	// Calculate total, excluding taxes
+    	$total = 0;
+    	$items = $order->get_items();
+    	foreach ($items as $item) {
+	    	$total += $item['line_total'];
+    	}
+    	
+    	// Deduct discounts
+    	$discounts = $order->get_order_discount();
+    	
+    	// Final Total (ex. tax + after discounts)
+    	$total = $total - $discounts;
+    	
     	$tracked = get_post_meta($orderID, $this->plugin->name, true);
     	if (empty($tracked)) {
-    		echo ('<img src="https://shareasale.com/sale.cfm?amount='.$order->get_order_total().'&tracking='.$orderID.'&transtype=sale&merchantID='.$settings['merchantID'].'" width="1" height="1">');
+    		echo ('<img src="https://shareasale.com/sale.cfm?amount='.$total.'&tracking='.$orderID.'&transtype=sale&merchantID='.$settings['merchantID'].'" width="1" height="1">');
 			update_post_meta($orderID, $this->plugin->name, 1);
 		}
     }
