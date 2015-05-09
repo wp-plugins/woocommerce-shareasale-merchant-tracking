@@ -17,14 +17,13 @@ class WPCubeDashboardWidget {
 	function __construct($plugin) {
 		// Plugin Details
         $this->dashboard = $plugin;
-        $this->dashboardURL = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
+        $this->dashboardURL = plugin_dir_url( __FILE__ );
 
 		// Hooks
 		add_action('admin_enqueue_scripts', array(&$this, 'adminScriptsAndCSS'));
 		add_filter('admin_footer_text', array(&$this, 'adminFooterText'));
 		add_action('wp_dashboard_setup', array(&$this, 'dashboardWidget'));
 		add_action('wp_network_dashboard_setup', array(&$this, 'dashboardWidget'));	
-		
 	}     
 	
 	/**

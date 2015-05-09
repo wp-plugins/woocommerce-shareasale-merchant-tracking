@@ -1,14 +1,13 @@
 <div class="wrap">
-    <div id="<?php echo $this->plugin->name; ?>-title" class="icon32"></div> 
     <h2 class="wpcube"><?php echo $this->plugin->displayName; ?> &raquo; <?php _e('Settings'); ?></h2>
            
     <?php    
-    if (isset($this->message)) {
+    if ( isset( $this->message ) ) {
         ?>
         <div class="updated fade"><p><?php echo $this->message; ?></p></div>  
         <?php
     }
-    if (isset($this->errorMessage)) {
+    if ( isset( $this->errorMessage ) ) {
         ?>
         <div class="error fade"><p><?php echo $this->errorMessage; ?></p></div>  
         <?php
@@ -36,6 +35,7 @@
 		                    
 		                    <div class="option">
 			                    <p>
+                                    <?php wp_nonce_field( $this->plugin->name, $this->plugin->name.'_nonce' ); ?>
 			                    	<input type="submit" name="submit" value="<?php _e('Save', $this->plugin->name); ?>" class="button button-primary" /> 
 			                	</p>
 			                </div>
