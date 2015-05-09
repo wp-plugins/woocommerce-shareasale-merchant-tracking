@@ -2,7 +2,7 @@
 /**
 * Plugin Name: WooCommerce ShareASale Merchant Tracking
 * Plugin URI: http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking
-* Version: 1.0.4
+* Version: 1.0.5
 * Author: WP Cube
 * Author URI: http://www.wpcube.co.uk
 * Description: Adds ShareASale Merchant Tracking code to WooCommerce.
@@ -31,7 +31,7 @@
 * @package WP Cube
 * @subpackage WooCommerce ShareASale Merchant Tracking
 * @author Tim Carr
-* @version 1.0.4
+* @version 1.0.5
 * @copyright WP Cube
 */
 class WCShareASaleMerchantTracking {
@@ -47,7 +47,7 @@ class WCShareASaleMerchantTracking {
         $this->plugin->displayName  = 'WC ShareASale - Merchant';
         $this->plugin->version      = '1.0.4';
         $this->plugin->folder       = plugin_dir_path( __FILE__ );
-        $this->plugin->url          = WP_PLUGIN_URL .'/'. str_replace( basename( __FILE__), "", plugin_basename(__FILE__) );
+        $this->plugin->url          = plugin_dir_url( __FILE__ );
         
         // Dashboard Submodule
         if ( ! class_exists( 'WPCubeDashboardWidget' ) ) {

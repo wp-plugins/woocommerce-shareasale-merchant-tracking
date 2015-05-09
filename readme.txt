@@ -3,7 +3,7 @@ Contributors: n7studios,wpcube
 Donate link: http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking
 Tags: woocommerce,shareasale,merchant,tracking
 Requires at least: 3.6
-Tested up to: 4.2
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -47,6 +47,9 @@ Find out more about us at <a href="http://www.wpcube.co.uk" title="Premium WordP
 1. Settings screen
 
 == Changelog ==
+
+= 1.0.5 =
+* Fix: plugin_dir_url() used to provide HTTPS support
 
 = 1.0.4 =
 * Added: symlink support

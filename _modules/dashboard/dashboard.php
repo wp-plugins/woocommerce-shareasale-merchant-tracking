@@ -17,7 +17,7 @@ class WPCubeDashboardWidget {
 	function __construct($plugin) {
 		// Plugin Details
         $this->dashboard = $plugin;
-        $this->dashboardURL = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
+        $this->dashboardURL = plugin_dir_url( __FILE__ );
 
 		// Hooks
 		add_action('admin_enqueue_scripts', array(&$this, 'adminScriptsAndCSS'));
