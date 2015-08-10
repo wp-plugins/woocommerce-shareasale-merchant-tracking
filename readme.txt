@@ -1,9 +1,9 @@
 === WooCommerce ShareASale Merchant Tracking ===
 Contributors: n7studios,wpcube
 Donate link: http://www.wpcube.co.uk/plugins/woocommerce-shareasale-merchant-tracking
-Tags: woocommerce,shareasale,merchant,tracking
+Tags: woocommerce,shareasale,merchant,tracking,affiliates,merchants,wc,woo,ecommerce
 Requires at least: 3.6
-Tested up to: 4.2.2
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
